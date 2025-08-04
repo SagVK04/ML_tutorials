@@ -31,6 +31,12 @@ Y_test = Y[-140:]
 fraud_model = KNeighborsClassifier(n_neighbors=95)
 fraud_model.fit(X_train_scaled,Y_train)
 Y_pred = fraud_model.predict(X_test_scaled)
+acc = accuracy_score(Y_test,Y_pred)*100
+
+if(acc <=50):
+    print("Transaction may be fraud!")
+else:
+    print("Transaction is safe")
 
 
 #best_acc = 0
